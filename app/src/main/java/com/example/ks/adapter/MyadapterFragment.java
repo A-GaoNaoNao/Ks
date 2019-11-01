@@ -1,4 +1,4 @@
-package com.example.ks;
+package com.example.ks.adapter;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.ks;
+package com.example.ks.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.ks.ItemList;
+import com.example.ks.R;
 
 import java.util.ArrayList;
 

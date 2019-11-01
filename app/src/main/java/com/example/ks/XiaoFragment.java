@@ -14,11 +14,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.ks.adapter.MyadapterRecyc;
 import com.example.ks.minap.MinaPertent;
 import com.example.ks.minap.MinaView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**

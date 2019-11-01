@@ -1,4 +1,4 @@
-package com.example.ks;
+package com.example.ks.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.ks.ItemList;
+import com.example.ks.R;
 
 import java.util.ArrayList;
 
