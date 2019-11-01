@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-class MyadapterRecyc2 extends RecyclerView.Adapter {
+public class MyadapterRecyc2 extends RecyclerView.Adapter {
     private Context context;
     private ArrayList<ItemList.DataBean.DatasBean> list;
 
@@ -74,7 +74,7 @@ class MyadapterRecyc2 extends RecyclerView.Adapter {
         }
     }
 
-    interface Clickler{
+    public interface Clickler{
         void click(int index);
     }
     private Clickler clickler;

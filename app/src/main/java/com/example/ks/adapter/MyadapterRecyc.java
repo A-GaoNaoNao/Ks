@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-class MyadapterRecyc extends RecyclerView.Adapter {
+public class MyadapterRecyc extends RecyclerView.Adapter {
     private Context context;
     private ArrayList<ItemList.DataBean.DatasBean> list;
 
@@ -32,8 +32,16 @@ class MyadapterRecyc extends RecyclerView.Adapter {
             View view = LayoutInflater.from(context).inflate(R.layout.layout_item_1, parent, false);
             return new ItemListHolder1(view);
         }
-        View view = LayoutInflater.from(context).inflate(R.layout.layout_item_2, parent, false);
-        return new ItemListHolder2(view);
+        if (viewType == 2) {
+            View view = LayoutInflater.from(context).inflate(R.layout.layout_item_2, parent, false);
+            return new ItemListHolder2(view);
+        }
+        if (viewType == 3){
+            View view = LayoutInflater.from(context).inflate(R.layout.layout_item_3, parent, false);
+            return new ItemListHolder3(view);
+        }
+        View view = LayoutInflater.from(context).inflate(R.layout.layout_item_4, parent, false);
+        return new ItemListHolder4(view);
     }
 
     @Override
@@ -50,6 +58,16 @@ class MyadapterRecyc extends RecyclerView.Adapter {
             Glide.with(context).load(list.get(position).getEnvelopePic()).into(itemListHolder2.iv);
         }
 
+        if (type == 3){
+            ItemListHolder3 itemListHolder3 = (ItemListHolder3) holder;
+            itemListHolder3.desc.setText(list.get(position).getDesc());
+            Glide.with(context).load(list.get(position).getEnvelopePic()).into(itemListHolder3.iv);
+        }
+        if (type == 4){
+            ItemListHolder4 itemListHolder4 = (ItemListHolder4) holder;
+            itemListHolder4.desc.setText(list.get(position).getDesc());
+            Glide.with(context).load(list.get(position).getEnvelopePic()).into(itemListHolder4.iv);
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,10 +85,16 @@ class MyadapterRecyc extends RecyclerView.Adapter {
 
     @Override
     public int getItemViewType(int position) {
-        if (position %2 == 0){
+        if (position == 0){
             return 1;
-        }else {
+        }
+        if(position == 1){
             return 2;
+        }
+        if (position == 2){
+            return 3;
+        }else {
+            return 4;
         }
     }
 
@@ -93,7 +117,27 @@ class MyadapterRecyc extends RecyclerView.Adapter {
             desc = itemView.findViewById(R.id.tv_item_2);
         }
     }
-    interface Clickl{
+
+    class ItemListHolder3 extends RecyclerView.ViewHolder {
+        private ImageView iv;
+        private TextView desc;
+        public ItemListHolder3(@NonNull View itemView) {
+            super(itemView);
+            iv = itemView.findViewById(R.id.iv_item_3);
+            desc = itemView.findViewById(R.id.tv_item_3);
+        }
+    }
+    class ItemListHolder4 extends RecyclerView.ViewHolder {
+        private ImageView iv;
+        private TextView desc;
+        public ItemListHolder4(@NonNull View itemView) {
+            super(itemView);
+            iv = itemView.findViewById(R.id.iv_item_4);
+            desc = itemView.findViewById(R.id.tv_item_4);
+        }
+    }
+
+   public interface Clickl{
         void click(int index);
     }
     private Clickl clickl;
